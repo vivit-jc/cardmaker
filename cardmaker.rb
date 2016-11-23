@@ -9,13 +9,13 @@ open(filename) do |file|
   end
 end
 
-html = "<html><head><link href=\"./app.css\" rel=\"stylesheet\"></head><body><table border=1><tr>"
+html = "<!doctype html>\n<html>\n<head>\n<link href=\"./app.css\" rel=\"stylesheet\">\n</head>\n<body>\n<table border=1>\n<tr>\n"
 cardarray.each_with_index do |c,i|
-  html += "<td><span class=\"name\">#{c[0]}</span><br>#{c[1]}</td>"
-  html += "</tr><tr>" if i%4 == 3
+  html += "<td>\n<span class=\"name\">#{c[0]}</span><br>#{c[1]}\n</td>\n"
+  html += "</tr>\n<tr>\n" if i%4 == 3
 end
 
-html += "</tr></table></body></html>"
+html += "</tr>\n</table>\n</body>\n</html>"
 
 File.open(filename.split(".")[0]+".html","w") do |file|
   file.write html
